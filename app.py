@@ -2,9 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 
-import cryptography
-from cryptography.fernet import Fernet
-
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
