@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}Sell a Product – My Shop{% endblock %}
+
+{% block content %}
+
+  <!-- Topbar Start -->
+  <div class="container-fluid">
+    <div class="row bg-secondary py-2 px-xl-5">
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="d-inline-flex align-items-center">
+          <a class="text-dark" href="">FAQs</a>
+          <span class="text-muted px-2">|</span>
+          <a class="text-dark" href="">Help</a>
+          <span class="text-muted px-2">|</span>
+          <a class="text-dark" href="">Support</a>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center text-lg-right">
+        <div class="d-inline-flex align-items-center">
+          <a class="text-dark px-2" href=""><i class="fab fa-facebook-f"></i></a>
+          <a class="text-dark px-2" href=""><i class="fab fa-twitter"></i></a>
+          <a class="text-dark px-2" href=""><i class="fab fa-linkedin-in"></i></a>
+          <a class="text-dark px-2" href=""><i class="fab fa-instagram"></i></a>
+          <a class="text-dark pl-2" href=""><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center py-3 px-xl-5">
+      <div class="col-lg-3 d-none d-lg-block">
+        <a class="text-decoration-none" href="{{ url_for('home') }}">
+          <h1 class="m-0 display-5 font-weight-semi-bold">
+            <span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper
+          </h1>
+        </a>
+      </div>
+      <div class="col-lg-6 col-6 text-left">
+        <form action="">
+          <div class="input-group">
+            <input class="form-control" placeholder="Search for products" type="text"/>
+            <div class="input-group-append">
+              <span class="input-group-text bg-transparent text-primary">
+                <i class="fa fa-search"></i>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-3 col-6 text-right">
+        <a class="btn border" href=""><i class="fas fa-heart text-primary"></i><span class="badge">0</span></a>
+        <a class="btn border" href=""><i class="fas fa-shopping-cart text-primary"></i><span class="badge">0</span></a>
+      </div>
+    </div>
+  </div>
+  <!-- Topbar End -->
+  <!-- (code above copied exactly from index.html) :contentReference[oaicite:0]{index=0} -->
+
+  <!-- Navbar Start -->
+  <div class="container-fluid mb-5">
+    <div class="row border-top px-xl-5">
+      <div class="col-lg-3 d-none d-lg-block">
+        <a class="btn shadow-none d-flex align-items-center justify-content-between
+              bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical"
+           style="height: 65px; margin-top: -1px; padding: 0 30px;">
+          <h6 class="m-0">Categories</h6>
+          <i class="fa fa-angle-down text-dark"></i>
+        </a>
+        <!-- vertical menu here… -->
+      </div>
+      <div class="col-lg-9">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+          <a href="{{ url_for('home') }}" class="navbar-brand d-block d-lg-none">
+            <h1 class="m-0 display-5 font-weight-semi-bold">
+              <span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper
+            </h1>
+          </a>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav mr-auto py-0">
+              <a href="{{ url_for('home') }}" class="nav-item nav-link">Home</a>
+              <a href="{{ url_for('shop') }}" class="nav-item nav-link">Shop</a>
+              <a href="{{ url_for('detail') }}" class="nav-item nav-link">Shop Detail</a>
+              <a href="{{ url_for('upload_product') }}" class="nav-item nav-link active">Sell a Product</a>
+            </div>
+            <div class="navbar-nav ml-auto py-0">
+              <a href="#" class="nav-item nav-link">Login</a>
+              <a href="#" class="nav-item nav-link">Register</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- Navbar End -->
+  <!-- (code above copied exactly from index.html) :contentReference[oaicite:1]{index=1} -->
+
+  <!-- Page Header Start -->
+  <div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+      <h1 class="font-weight-semi-bold text-uppercase mb-3">Sell a Product</h1>
+      <div class="d-inline-flex">
+        <p class="m-0"><a href="{{ url_for('home') }}">Home</a></p>
+        <p class="m-0 px-2">–</p>
+        <p class="m-0">Sell a Product</p>
+      </div>
+    </div>
+  </div>
+  <!-- Page Header End -->
+
+  <!-- Your Upload Form -->
+  <div class="container">
+    <div class="upload-form py-5 bg-white rounded shadow-sm">
+      <h2 class="mb-4">Sell a Product</h2>
+      <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" type="text" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="4" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="price">Price (USD)</label>
+          <input id="price" type="number" name="price" step="0.01" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="images">Product Images</label>
+          <input id="images" type="file" name="images" accept="image/*" multiple class="form-control-file">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  <!-- (form structure adapted from your original upload.html) :contentReference[oaicite:2]{index=2} -->
+
+{% endblock %}
